@@ -13,7 +13,7 @@ admin.site.register(Language)
 #To change how a model is displayed in the admin interface you define a ModelAdmin class (which describes the layout) and register it with the model.
 #Define the admin class
 class AuthorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
 
 #Register the admin class with the associated model
 admin.site.register(Author, AuthorAdmin)
