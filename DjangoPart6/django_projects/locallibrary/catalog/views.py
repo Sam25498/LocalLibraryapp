@@ -36,6 +36,7 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 10
     
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get the context
