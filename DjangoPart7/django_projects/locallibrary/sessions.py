@@ -1,3 +1,4 @@
+""""Using sessions"""
 # Get a session value by its key (e.g. 'my_car'), raising a KeyError if the key is not present
 my_car = request.session['my_car']
 
