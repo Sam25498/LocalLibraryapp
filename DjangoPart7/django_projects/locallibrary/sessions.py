@@ -10,3 +10,8 @@ request.session['my_car'] = 'mini'
 
 # Delete a session value
 del request.session['my_car']
+
+""""Saving session data"""
+
+# This is detected as an update to the session, so session data is saved.
+request.session['my_car'] = 'mini'
