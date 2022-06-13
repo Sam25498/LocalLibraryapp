@@ -15,3 +15,9 @@ del request.session['my_car']
 
 # This is detected as an update to the session, so session data is saved.
 request.session['my_car'] = 'mini'
+
+# Session object not directly modified, only data within the session. Session changes not saved!
+request.session['my_car']['wheels'] = 'alloy'
+
+# Set session as modified to force data updates/cookie to be saved.
+request.session.modified = True
