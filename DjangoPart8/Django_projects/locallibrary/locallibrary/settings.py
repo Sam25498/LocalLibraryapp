@@ -1,1 +1,9 @@
 import os # needed by code below
+
+    ...
+    TEMPLATES = [
+      {
+       ...
+       'DIRS': [os.path.join(BASE_DIR, 'templates')],
+       'APP_DIRS': True,
+       ...
