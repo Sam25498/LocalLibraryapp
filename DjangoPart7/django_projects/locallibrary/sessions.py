@@ -30,3 +30,22 @@ request.session.modified = True
 As a simple real-world example we'll update our library to tell the current user how many times they have visited the LocalLibrary home page.
 
 Open /locallibrary/catalog/views.py, and add the lines that contain num_visits into index() (as shown below)."""
+def index(request):
+    ...
+
+    num_authors = Author.objects.count()  # The 'all()' is implied by default.
+
+    # Number of visits to this view, as counted in the session variable.
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
+    context = {
+        'num_books': num_books,
+        'num_instances': num_instances,
+        'num_instances_available': num_instances_available,
+        'num_authors': num_authors,
+        'num_visits': num_visits,
+    }
+
+    # Render the HTML template index.html with the data in the context variable.
+    return render(request, 'index.html', context=context)
