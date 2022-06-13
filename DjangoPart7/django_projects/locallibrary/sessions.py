@@ -25,3 +25,8 @@ request.session['my_car']['wheels'] = 'alloy'
 
 # Set session as modified to force data updates/cookie to be saved.
 request.session.modified = True
+
+"""Simple example — getting visit counts
+As a simple real-world example we'll update our library to tell the current user how many times they have visited the LocalLibrary home page.
+
+Open /locallibrary/catalog/views.py, and add the lines that contain num_visits into index() (as shown below)."""
