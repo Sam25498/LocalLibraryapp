@@ -156,3 +156,22 @@ class AuthorDelete(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('authors')
     permission_required = 'catalog.can_mark_returned'
    
+    
+class BookCreate(PermissionRequiredMixin, CreateView):
+    model = Book
+    fields = ['title', 'author', 'summary', 'isbn', 'genre', 'language']
+    initial = {'title': 'Killing the Mockingbird'}
+    permission_required = 'catalog.can_mark_returned'
+   
+class BookUpdate(PermissionRequiredMixin, UpdateView):
+    model = Book
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+    permission_required = 'catalog.can_mark_returned'
+
+   
+class BookDelete(PermissionRequiredMixin, DeleteView):
+    model = Book
+    success_url = reverse_lazy('authors')
+    permission_required = 'catalog.can_mark_returned'
+   
+   
