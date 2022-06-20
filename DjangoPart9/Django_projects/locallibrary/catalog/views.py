@@ -139,18 +139,17 @@ from django.urls import reverse_lazy
 
 from catalog.models import Author
 
-@permission_required('catalog.can_mark_returned', raise_exception=True)   
-class AuthorCreate(CreateView):
+class AuthorCreate(PermissionRequiredMixin, CreateView):
     model = Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
     initial = {'date_of_death': '11/06/2020'}
-
-@permission_required('catalog.can_mark_returned', raise_exception=True)   
-class AuthorUpdate(UpdateView):
+   
+class AuthorUpdate(PermissionRequiredMixin, UpdateView):
     model = Author
     fields = '__all__' # Not recommended (potential security issue if more fields added)
 
-@permission_required('catalog.can_mark_returned', raise_exception=True)       
-class AuthorDelete(DeleteView):
+   
+class AuthorDelete(PermissionRequiredMixin, DeleteView):
     model = Author
     success_url = reverse_lazy('authors')
+   
