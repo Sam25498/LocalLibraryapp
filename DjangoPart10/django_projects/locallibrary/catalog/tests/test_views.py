@@ -339,7 +339,7 @@ class RenewBookInstancesViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertFormError(response, 'form', 'renewal_date', 'Invalid date - renewal more than 4 weeks ahead')
 
-lass AuthorCreateViewTest(TestCase):
+class AuthorCreateViewTest(TestCase):
     """Test case for the AuthorCreate view (Created as Challenge)."""
 
     def setUp(self):
@@ -393,5 +393,4 @@ lass AuthorCreateViewTest(TestCase):
                                     {'first_name': 'Christian Name', 'last_name': 'Surname'})
         # Manually check redirect because we don't know what author was created
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith('/catalog/author/')) 
-        
+        self.assertTrue(response.url.startswith('/catalog/author/'))
